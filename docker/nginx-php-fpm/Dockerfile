@@ -15,9 +15,9 @@ RUN yum update -y \
     && yum install -y nginx supervisor mysql gd php-ldap php-soap php-xml php-mbstring php-zip php-bcmath php-pecl-imagick \
     && yum clean all
 
-WORKDIR /var/www/html
-COPY --from=composer /app /var/www/html
-COPY ./docker/nginx-php-fpm/nginx.conf /etc/nginx/nginx.conf
+WORKDIR /usr/share/nginx/html
+COPY --from=composer /app /usr/share/nginx/html
+# COPY ./docker/nginx-php-fpm/nginx.conf /etc/nginx/nginx.conf
 COPY ./docker/nginx-php-fpm/override-php-fpm.conf /etc/php-fpm.d/override-php-fpm.conf
 COPY ./docker/nginx-php-fpm/supervisord.ini /etc/supervisord.d/supervisord.ini
 
