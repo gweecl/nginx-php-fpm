@@ -8,9 +8,9 @@ services:
     volumes:
       # Local Settings - START
       # For running docker images
-      # - document-root:/var/www/html
+      # - document-root:/usr/share/nginx/html
       # For local development
-      - ./src:/var/www/html
+      - ./src:/usr/share/nginx/html
       # Local Settings - END
     ports:
       - 80:80
